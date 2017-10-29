@@ -14,6 +14,9 @@ YDMpassword = b''
 username = ''# Should only contain 9 numbers
 password = ''
 
+# 以上为所有需要更改的参数 如果非dhu需要更改headers中fid=243字段<-最好Network中看下headers和data有什么区别
+# 强烈推荐Firefox
+
 def code_verificate(path):
     # 例：1004表示4位字母数字，不同类型收费不同。请准确填写，否则影响识别率。在此查询所有类型 http://www.yundama.com/price.html
     codetype = 1004
@@ -70,7 +73,7 @@ def login(path):
     # When replace " -w %{http_code} " in the end of curl with " -D <file> " e.g. headers.txt
     # all the cookies resposed from server were saved
     # then use -c, --cookie-jar to read or manipulate them
-    print(curl)
+    # print(curl)
     ret = subprocess.Popen(curl, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     sout = ret.stdout.readlines()
     return str(sout[0])
